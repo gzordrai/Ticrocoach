@@ -1,0 +1,17 @@
+{
+  "name": "aaa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord-bot-quickstart": "0.0.14",
+    "install": "^0.13.0",
+    "npm": "^7.5.2",
+    "typescript": "^4.1.3"
+  }
+}
