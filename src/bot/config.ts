@@ -5,7 +5,10 @@ export interface ITicrocoachConfig extends IBotConfig {
         riot?: string
     },
     path?: {
-        db?: string
+        db?: {
+            ticket?: string,
+            coach?: string
+        }
     },
     emojis?: {
         numbers?: string[],
