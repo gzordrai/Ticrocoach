@@ -10,12 +10,6 @@ export interface ITicrocoachConfig extends IBotConfig {
             coach: string
         }
     },
-    leagueOfLegendsInfo: {
-        lanes: string[],
-        ranks: string[],
-        divisions: string[],
-        specialties: string[]
-    },
     emojis: {
         numbers: string[],
         back: string,

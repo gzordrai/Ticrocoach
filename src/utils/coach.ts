@@ -19,6 +19,10 @@ export class Coach {
         }
     }
 
+    get_id() {
+        return this.id;
+    }
+
     add_lane(lane: string) {
         this.lanes.push(lane);
     }
