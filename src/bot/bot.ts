@@ -101,7 +101,28 @@ export class Ticrocoach extends IBot<ITicrocoachConfig> {
                                     break;
                             }
                         })
+                        .on("end", () => {
+                            if(registration.get_step() === 4) {
+                                msg.channel.send("Veuillez choisir votre présentation de coach (en un seul message)")
+                                    .then(m => {
+                                        m.channel.awaitMessages((message: Message) => message.author.id === msg.author.id, { max: 1 })
+                                            .then(collected => {
+                                                let s: string | undefined = collected.first()?.content;
+
+                                                if(s !== undefined)
+                                                    coach.set_description(s);
+                                                else {
+                                                    msg.channel.send("Une erreur est survenue !");
+                                                    coach.set_description("");
+                                                }
+                                            })
+                                    })
+                            }
+                        })
                 })
+        })
+        .on("register", (cmd: SuccessfulParsedMessage<Message>, msg: Message) => {
+
         })
     }
     onClientCreated(client: Client): void { }
