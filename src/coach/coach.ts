@@ -5,6 +5,7 @@ export class Coach {
     divisions: string[] = new Array();
     specialties: string[] = new Array();
     description: string = "";
+    champions: string[] = new Array();
 
     constructor(id: string) {
         this.id = id;
