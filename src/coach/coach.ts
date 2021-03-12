@@ -10,7 +10,7 @@ export class Coach {
         this.id = id;
     }
 
-    reset(step: number) {
+    public reset(step: number): void {
         switch(step) {
             case 0: this.lanes = new Array(); break;
             case 1: this.ranks = new Array(); break;
@@ -19,43 +19,43 @@ export class Coach {
         }
     }
 
-    get_id() {
+    public get_id(): string {
         return this.id;
     }
 
-    add_lane(lane: string) {
+    public add_lane(lane: string): void {
         this.lanes.push(lane);
     }
 
-    get_lane() {
+    public get_lane(): string[] {
         return this.lanes;
     }
 
-    add_rank(rank: string) {
+    public add_rank(rank: string): void {
         this.ranks.push(rank);
     }
 
-    get_rank() {
+    public get_rank(): string[] {
         return this.ranks;
     }
 
-    add_division(division: string): void {
+    public add_division(division: string): void {
         this.divisions.push(division);
     }
 
-    add_specialty(specialty: string) {
+    public add_specialty(specialty: string): void {
         this.specialties.push(specialty);
     }
 
-    get_specialty() {
+    public get_specialty(): string[] {
         return this.specialties;
     }
 
-    set_description(description: string) {
+    public set_description(description: string): void {
         this.description = description;
     }
 
-    get_description() {
+    public get_description(): string {
         return this.description;
     }
 }
