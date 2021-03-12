@@ -82,7 +82,7 @@ export class Ticrocoach extends IBot<ITicrocoachConfig> {
 
                                                 //MAX: 2 divisions
                                                 case 2:
-                                                    if(j < 2)
+                                                    if(j < coach.get_rank.length)
                                                         coach.add_division(this.lolInfo.divisions[i]);
                                                     break;
 
@@ -93,16 +93,20 @@ export class Ticrocoach extends IBot<ITicrocoachConfig> {
                                         }
                                     }
 
-                                    if(j === 0)
+                                    if(j === 0) {
                                         msg.channel.send("Pas de choix selectionné !")
                                             .then(m => m.delete({timeout: 5000}));
-                                    else
-                                        registration.nextStep();
+                                    } else {
+                                        if(registration.get_step() < 3)
+                                            registration.nextStep();
+                                        else
+                                            collector.stop();
+                                    }
                                     break;
                             }
                         })
                         .on("end", () => {
-                            if(registration.get_step() === 4) {
+                            if(registration.get_step() === 3) {
                                 msg.channel.send("Veuillez choisir votre présentation de coach (en un seul message)")
                                     .then(m => {
                                         m.channel.awaitMessages((message: Message) => message.author.id === msg.author.id, { max: 1 })
@@ -115,14 +119,19 @@ export class Ticrocoach extends IBot<ITicrocoachConfig> {
                                                     msg.channel.send("Une erreur est survenue !");
                                                     coach.set_description("");
                                                 }
+
+                                                msg.channel.send("Votre profil de coach a été enregistrer avec succès !")
+                                                    .then(mg => mg.delete({ timeout: 5000 }));
+                                                m.delete();
+                                                msg.delete();
                                             })
                                     })
                             }
                         })
                 })
         })
-        .on("register", (cmd: SuccessfulParsedMessage<Message>, msg: Message) => {
-
+        .on("add", (cmd: SuccessfulParsedMessage<Message>, msg: Message) => {
+            console.log(cmd);
         })
     }
     onClientCreated(client: Client): void { }
