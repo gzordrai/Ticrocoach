@@ -12,7 +12,7 @@ export interface ITicrocoachConfig extends IBotConfig {
     },
     emojis: {
         numbers: string[],
-        back: string,
+        previous: string,
         validate: string,
         cancel: string
     }

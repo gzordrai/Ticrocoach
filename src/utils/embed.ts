@@ -27,13 +27,12 @@ export class Embed {
     public createCoachChoiceEmbeds(steps: string[], lolInfo: LolInfo): MessageEmbed[] {
         let embeds: MessageEmbed[] = new Array();
         let descriptions: string[] = this.createCoachChoiceEmbedDescriptions(lolInfo);
-        console.log(descriptions)
         for(let i: number = 0; i < steps.length; i++) {
             let embed: MessageEmbed = new MessageEmbed()
                 .setTitle(`Veuillez choisir le/la/les ${steps[i]} que vous souhaitez coacher`)
                 .setColor("#629530")
                 .setDescription(descriptions[i])
-                .setFooter(`${this.config.emojis.validate} pour valider votre selection\n${this.config.emojis.back} pour retourner à l'étape précedente\n${this.config.emojis.cancel} pour annuler la commande`);
+                .setFooter(`${this.config.emojis.validate} pour valider votre selection\n${this.config.emojis.previous} pour retourner à l'étape précedente\n${this.config.emojis.cancel} pour annuler la commande`);
             embeds.push(embed);
         }
         return embeds;

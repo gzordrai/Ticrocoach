@@ -1,2 +1,2 @@
 export * from "./embed"
-export * from "./coach"
+export * from "../coach/coach"

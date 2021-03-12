@@ -39,19 +39,8 @@ export class Coach {
         return this.ranks;
     }
 
-    add_division(divisions: string[]) {
-        this.divisions = divisions;
-        if(this.ranks.length === 1) {
-            this.ranks[0] += ` - ${divisions[0]}+`;
-        } else {
-            if(divisions.length === 2) {
-                this.ranks[0] += ` - ${divisions[0]}`;
-                this.ranks[1] += ` - ${divisions[1]}`;
-            } else {
-                this.ranks[0] += ` - ${divisions[0]}`;
-                this.ranks[1] += ` - ${divisions[0]}`;
-            }
-        }
+    add_division(division: string): void {
+        this.divisions.push(division);
     }
 
     add_specialty(specialty: string) {
@@ -63,7 +52,7 @@ export class Coach {
     }
 
     set_description(description: string) {
-            this.description = description;
+        this.description = description;
     }
 
     get_description() {
